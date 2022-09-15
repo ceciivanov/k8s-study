@@ -1,7 +1,7 @@
 # ETCD in Kubernetes, Backup-Restore
 
 
-1. Stacked ETCD -> etcd is running as static-pod in the controlplane
+# 1. Stacked ETCD -> etcd is running as static-pod in the controlplane
 
 EXPLORE ETCD:
 - cat /etc/kubernetes/manifests/etcd.yaml
@@ -46,7 +46,7 @@ we just specify the new --data-dir and the backup file, and then adjust the etcd
 - systemctl restart etcd
     
     
-2. External ETCD -- for high availability, meaning that the etcd is a remote server
+# 2. External ETCD -- for high availability, meaning that the etcd is a remote server
 
 Proceed with the exact same way for backup
 
