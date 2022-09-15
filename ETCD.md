@@ -60,8 +60,8 @@ e.x on controlplane which has external etcd-server
 
 **Restore:**
 (restore is only like unzipping the db file, it generates a new data-dir, that must be present on the etcd-server, and updated in the etcd.server)
-ETCDCTL_API=3 etcdctl --data-dir=/new-data-dir snapshot restore /path/backup.db
 
+- ETCDCTL_API=3 etcdctl --data-dir=/new-data-dir snapshot restore /path/backup.db
 - either copy the backup.db to the etcd-server and make the restore there specifying the --data-dir and changing the etcd.service
 - either restore from the remote host and move the new data-dir that is made to the etcd-server
 - also note to make the right permissions: chown -R etcd:etcd /var/lib/etcd-new
