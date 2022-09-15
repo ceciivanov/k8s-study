@@ -18,12 +18,13 @@ $controlplane-ip:2379
 - Same host, different port: --endpoints https://127.0.0.1:port
 - Remote host: --endpoints https://host-ip:port (running etcd on other host)
 - for the endpoint we set the client-url (from --listen-client-urls), and we run the etcdctl from the server that is running etcd 
-- 
+
 ## Backup
-- ETCDCTL_API=3 etcdctl --endpoints=https://127.0.0.1:2379 --cacert=/etc/kubernetes/pki/etcd/ca.crt \
--                       --cert=/etc/kubernetes/pki/etcd/server.crt \
--                       --key=/etc/kubernetes/pki/etcd/server.key
--                       snapshot save /desired/path/etcd-backup.db
+- ETCDCTL_API=3 etcdctl --endpoints=https://127.0.0.1:2379 
+                        --cacert=/etc/kubernetes/pki/etcd/ca.crt \
+                        --cert=/etc/kubernetes/pki/etcd/server.crt \
+                        --key=/etc/kubernetes/pki/etcd/server.key
+                        snapshot save /desired/path/etcd-backup.db
 
 
 ## Restore
@@ -34,11 +35,9 @@ we just specify the new --data-dir and the backup file, and then adjust the etcd
 - ETCDCTL_API=3 etcdctl --data-dir=/var/lib/etcd-backup snapshot restore /desired/path/etcd-backup.db
 - stop kubernetes services by moving the yaml files from /etc/kubernetes/manifests
 - edit /etc/kubernetes/manifests/etcd.yaml
-- **volumes:
+- volumes:
 -   - hostPath:
       path: /var/lib/etcd    # <- change this
-      type: DirectoryOrCreate
-    name: etcd-data**
 - restart services and kubelet
 
 ## manually installed etcd
