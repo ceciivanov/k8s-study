@@ -63,3 +63,9 @@ kubectl auth can-i list pods --as=demouser
 **
 kubectl get pods --kubeconfig=demouser.conf 
 OR new user gets his own home directory and in /root/.kube/config is stored its config file
+
+----------------------------------------------------------------------------------------------
+
+# Check certificates validity
+
+- openssl x509 -noout -text -in demouser.crt | grep validity -A5
