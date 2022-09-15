@@ -57,7 +57,8 @@ take the --etcd-server IP
 and the certs for talking to the etcd 
 ETCDCTL_API=3 etcdctl --endpoints=https://$etcd-server-ip:2379 --cacert= --cert= --key= ... snapshot save /path/backup.db
 
-**restore: **
+**restore:**
+
 ETCDCTL_API=3 etcdctl --data-dir=/new-data-dir snapshot restore /path/backup.db
 
 - either copy the backup.db to the etcd-server and make the restore there specifying the --data-dir and changing the etcd.service
