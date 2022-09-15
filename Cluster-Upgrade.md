@@ -23,6 +23,7 @@ apt-get update && apt-get install -y kubelet=1.25.x-00 kubectl=1.25.x-00 && \
 apt-mark hold kubelet kubectl
 
 sudo systemctl daemon-reload
+
 sudo systemctl restart kubelet
 
 kubectl uncordon controlplane
@@ -43,6 +44,7 @@ apt-get update && apt-get install -y kubelet=1.25.x-00 kubectl=1.25.x-00 && \
 apt-mark hold kubelet kubectl
 
 sudo systemctl daemon-reload
+
 sudo systemctl restart kubelet
 
 kubectl uncordon worker-node
