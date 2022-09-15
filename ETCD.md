@@ -48,14 +48,20 @@ we just specify the new --data-dir and the backup file, and then adjust the etcd
     
 # 2. External ETCD -- for high availability, meaning that the etcd is a remote server
 
-Proceed with the exact same way for backup
+**backup:**
+From the remote host on which you want to run the backup, make sure you have the certs for etcd-server and specify the right endpoints with the etcd-server ip
 
+e.x on controlplane which has external etcd-server
 cat /etc/kubernetes/manifests/kube-apiserver.yaml | grep etcd
 take the --etcd-server IP
 and the certs for talking to the etcd 
 ETCDCTL_API=3 etcdctl --endpoints=https://$etcd-server-ip:2379 --cacert= --cert= --key= ... snapshot save /path/backup.db
 
-restore:
-ETCDCTL_API=3 etcdctl --data-dir=/path/ snapshot restore /path/backup.db
+**restore: **
+ETCDCTL_API=3 etcdctl --data-dir=/new-data-dir snapshot restore /path/backup.db
 
-now we need to copy the data-dir to the etcd host system and change the etcd service
+- either copy the backup.db to the etcd-server and make the restore there specifying the --data-dir and changing the etcd.service
+- also note to make the right permissions: chown -R etcd:etcd /var/lib/etcd-new
+
+either restore from the remote host and move the new data-dir made to the etcd-server
+make right permissions and change the etcd-service
