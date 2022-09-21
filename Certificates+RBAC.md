@@ -9,16 +9,26 @@
 
 **csr.yaml**
 apiVersion: certificates.k8s.io/v1
+
 kind: CertificateSigningRequest
+
 metadata:
-	name: demouser
+
+  name: demouser
+
 spec:
-	groups:
-         - system:authenticated
-         request: <demouser.csr content>
-         signerName: kubernetes.io/kube-apiserver-client
-         usages:
-         - client auth
+
+  groups:
+  
+  - system:authenticated
+  
+  request: <demouser.csr content>
+  
+  signerName: kubernetes.io/kube-apiserver-client
+  
+  usages:
+  
+  - client auth
          
          
  - kubectl apply -f csr.yaml
