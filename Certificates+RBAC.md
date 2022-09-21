@@ -14,21 +14,21 @@ kind: CertificateSigningRequest
 
 metadata:
 
-  name: demouser
+    name: demouser
 
 spec:
 
-  groups:
+    groups:
   
-  - system:authenticated
+    - system:authenticated
   
-  request: <demouser.csr content>
+    request: <demouser.csr content>
   
-  signerName: kubernetes.io/kube-apiserver-client
+    signerName: kubernetes.io/kube-apiserver-client
   
-  usages:
+    usages:
   
-  - client auth
+    - client auth
          
          
  - kubectl apply -f csr.yaml
