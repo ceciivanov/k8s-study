@@ -1,0 +1,24 @@
+## schedule pod on master node which is tainted 
+## configure tolerations + nodeSelector to assure that pod will be scheduled on master node
+piVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: pod1
+  name: pod1
+spec:
+  containers:
+  - image: httpd:2.4.41-alpine
+    name: pod1-container                       # change
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+  tolerations:                                 # add
+  - effect: NoSchedule                         # add
+    key: node-role.kubernetes.io/master        # add
+  - effect: NoSchedule                         # add
+    key: node-role.kubernetes.io/control-plane # add
+  nodeSelector:                                # add
+    node-role.kubernetes.io/control-plane: ""  # add
+status: {}
