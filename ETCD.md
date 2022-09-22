@@ -64,8 +64,8 @@ e.x on controlplane which has external etcd-server
 - ETCDCTL_API=3 etcdctl --data-dir=/new-data-dir snapshot restore /path/backup.db
 - either copy the backup.db to the etcd-server and make the restore there specifying the --data-dir and changing the etcd.service
 - either restore from the remote host and move the new data-dir that is made to the etcd-server
-- also note to make the right permissions: chown -R etcd:etcd /var/lib/etcd-new
-
+- also note to make the right permissions:** chown -R etcd:etcd /var/lib/etcd-new
+**
 
 
 ### EXTRA: Copy files from one host to another
