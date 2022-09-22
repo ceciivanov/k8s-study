@@ -15,6 +15,8 @@ REMEMBER:
 - sudo systemctl restart kubelet
 - sudo journalctl -u kubelet | grep -i error
 - ps -ef | grep kubelet
+- /var/log/kubelet.log
+- /var/log/kube-proxy.log
 
 - kubelet service config is in: **--config=/var/lib/kubelet/config.yaml**
 
