@@ -13,7 +13,10 @@ spec:
     - from:
         - namespaceSelector:
             matchLabels:
-              name: finance # this is the label that the namespace should have
+              name: finance    # this is the label that the namespace should have
+        - podSelector:
+            matchLabels:
+              access: granted   # accept trafic from pods that are labeled as granted
       ports:
         - protocol: TCP
           port: 8080
