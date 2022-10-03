@@ -8,7 +8,7 @@ metadata:
 spec:
   podSelector: {} # match all pods in that namespace
   policyTypes:
-    - Ingress $ 
+    - Ingress
   ingress:
     - from:
         - namespaceSelector:
