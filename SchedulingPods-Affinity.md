@@ -47,4 +47,5 @@ affinity:
               
    
    Multiple - matchExpressions - AND condition
+   
    Multiple nodeSelectorTerms: - OR condition
