@@ -41,9 +41,9 @@ affinity:
           
             - matchExpressions:
             
-            - key: internal
+                - key: internal
             
-              operator: Exists
+                  operator: Exists
               
    
    Multiple - matchExpressions - AND condition
