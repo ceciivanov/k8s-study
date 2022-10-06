@@ -62,6 +62,9 @@ kubectl
 - https://kubernetes.io/docs/reference/kubectl/cheatsheet/
 - https://jamesdefabia.github.io/docs/reference/
 
+## Network Policy:
+https://banzaicloud.com/blog/network-policy/
+
 others
 - https://devhints.io/bash  (BASH)
 - https://devhints.io/vim  (VIM)
