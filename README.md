@@ -52,7 +52,7 @@ Practice/Mock-ups Exam Links:
 - https://github.com/chadmcrowell/CKA-Exercises
 - https://github.com/stretchcloud/cka-lab-practice
 - https://github.com/dgkanatsios/CKAD-exercises (useful for CKA too)
-
+- https://github.com/lisenet/kubernetes-homelab/tree/master/cka **** good to prepare
 
 ---
 
