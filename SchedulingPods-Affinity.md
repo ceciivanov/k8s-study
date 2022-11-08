@@ -15,22 +15,19 @@ A Pod with the same condition but defined as an Inter-Pod Affinity will be sched
 - preferredDuringSchedulingIgnoredDuringExecution – This is the “soft” matcher to express a preference that’s ignored when it can’t be fulfilled.
 
 
-example: Pod will be scheduled to node that has labels, hardware-class with value a,b OR c,  AND internal label exists (label="")
-
-affinity:
+## Node Affinity Rule
+spec:
+  affinity:
     nodeAffinity:
-        requiredDuringSchedulingIgnoredDuringExecution:
-            nodeSelectorTerms:
-            - matchExpressions:
-                - key: hardware-class
-                  operator: In
-                  values:
-                  - a
-                  - b
-                  - c
-            - matchExpressions:
-                - key: internal
-                  operator: Exists
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: e2e-az-name
+            operator: In
+            values:
+            - e2e-az1
+            - e2e-az2
+              
               
    Multiple - matchExpressions - AND condition
    
@@ -38,7 +35,7 @@ affinity:
    
    
    
- ## Affinity Rule
+ ## Inter-Pod Affinity Rule
     podAffinity:
       requiredDuringSchedulingIgnoredDuringExecution:
       - labelSelector:
@@ -50,7 +47,7 @@ affinity:
         topologyKey: failure-domain.beta.kubernetes.io/zone
 
 
-## Anti-Affinity Rule
+## Inter-Pod Anti-Affinity Rule
     podAntiAffinity:
       preferredDuringSchedulingIgnoredDuringExecution:
       - weight: 100
