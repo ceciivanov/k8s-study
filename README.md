@@ -56,8 +56,7 @@ Practice/Mock-ups Exam Links:
 
 ---
 
-Useful Links:
-kubectl
+## kubectl
 - https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands
 - https://kubernetes.io/docs/reference/kubectl/cheatsheet/
 - https://jamesdefabia.github.io/docs/reference/
