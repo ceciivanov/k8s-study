@@ -18,34 +18,20 @@ A Pod with the same condition but defined as an Inter-Pod Affinity will be sched
 example: Pod will be scheduled to node that has labels, hardware-class with value a,b OR c,  AND internal label exists (label="")
 
 affinity:
-
     nodeAffinity:
-    
         requiredDuringSchedulingIgnoredDuringExecution:
-        
             nodeSelectorTerms:
-          
             - matchExpressions:
-            
                 - key: hardware-class
-                
                   operator: In
-                  
                   values:
-               
                   - a
-                
                   - b
-                
                   - c
-          
             - matchExpressions:
-            
                 - key: internal
-            
                   operator: Exists
               
-   
    Multiple - matchExpressions - AND condition
    
    Multiple nodeSelectorTerms: - OR condition
