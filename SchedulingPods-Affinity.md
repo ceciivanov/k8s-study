@@ -16,17 +16,17 @@ A Pod with the same condition but defined as an Inter-Pod Affinity will be sched
 
 
 ## Node Affinity Rule
-  spec:
-    affinity:
-      nodeAffinity:
-        requiredDuringSchedulingIgnoredDuringExecution:
-          nodeSelectorTerms:
-          - matchExpressions:
-            - key: e2e-az-name
-              operator: In
-              values:
-              - e2e-az1
-              - e2e-az2
+spec:
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: e2e-az-name
+            operator: In
+            values:
+            - e2e-az1
+            - e2e-az2
               
               
    Multiple - matchExpressions - AND condition
