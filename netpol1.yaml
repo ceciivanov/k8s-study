@@ -17,3 +17,6 @@ spec:
       protocol: TCP
     - port: 53
       protocol: UDP
+
+
+## allow outgoing DNS traggif on port 53, but restricts pod in space1 to only reach pods in namespace space2 
