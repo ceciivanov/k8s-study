@@ -65,6 +65,9 @@ kubectl
 ## Network Policy:
 https://banzaicloud.com/blog/network-policy/
 
+## Scheduling:
+https://docs.openshift.com/container-platform/3.11/admin_guide/scheduling/scheduler-advanced.html
+
 others
 - https://devhints.io/bash  (BASH)
 - https://devhints.io/vim  (VIM)
