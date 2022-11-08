@@ -14,6 +14,7 @@ REMEMBER:
 - sudo systemctl status kubelet
 - sudo systemctl restart kubelet
 - sudo journalctl -u kubelet | grep -i error
+- sudo journalctl | grep apiserver
 - ps -ef | grep kubelet
 - /var/log/kubelet.log
 - /var/log/kube-proxy.log
