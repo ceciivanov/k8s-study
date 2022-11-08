@@ -35,21 +35,38 @@ in the ports section we specify the ports that is allowing traffic
 BUT the netpol it still allows outgoing DNS traffic on port 53
 
 apiVersion: networking.k8s.io/v1
+
 kind: NetworkPolicy
+
 metadata:
+
   name: np
+
   namespace: space1
 spec:
+  
   podSelector: {}
+  
   policyTypes:
+  
   - Egress
+  
   egress:
+  
   - to:
-      - namespaceSelector:
-          matchLabels:
-            kubernetes.io/metadata.name: space2
+  
+    - namespaceSelector:
+    
+        matchLabels:
+      
+        kubernetes.io/metadata.name: space2
+  
   - ports:
+  
     - port: 53
+    
       protocol: TCP
+     
     - port: 53
+    
       protocol: UDP
