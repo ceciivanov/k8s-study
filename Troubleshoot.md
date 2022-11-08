@@ -18,6 +18,7 @@ REMEMBER:
 - ps -ef | grep kubelet
 - /var/log/kubelet.log
 - /var/log/kube-proxy.log
+- cat /var/log/syslog | grep kube-apiserver
 
 - kubelet service config is in: **--config=/var/lib/kubelet/config.yaml**
 
