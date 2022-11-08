@@ -38,11 +38,6 @@ Setup Kubernetes Cluster
 3. Use the below link to bootstrap kubernetes cluster with kubeadm
 - https://medium.com/@marutijogdand7/setup-kubernetes-cluster-on-google-cloud-using-kubeadm-c6e31f22cd57
 
-(other option)
-Setup Kubernetes cluster from scratch (the hard way) on Google Cloud Platform (free-trial)
-- https://medium.com/@marutijogdand7/setup-kubernetes-cluster-on-google-cloud-using-kubeadm-c6e31f22cd57
-
-
 ---
 Practice/Mock-ups Exam Links:
 - https://killer.sh/cka (PAID Exam Simulator - comes with the CKA exam purchase)
