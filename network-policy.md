@@ -43,6 +43,7 @@ metadata:
   name: np
 
   namespace: space1
+  
 spec:
   
   podSelector: {}
