@@ -7,6 +7,16 @@
 
 - cat user.csr | base64 | tr -d '\n' -- to get the csr details
 
+## sign certificates manually with ca.crt
+openssl x509 -req -in demouser.csr -CA ca.crt -CAkey ca.key \
+    -CAcreateserial -out demouser.crt -days 10000
+
+view the csr
+openssl req  -noout -text -in ./demouser.csr
+
+view the crt
+openssl x509  -noout -text -in ./demouser.crt
+
 **csr.yaml**
 apiVersion: certificates.k8s.io/v1
 
