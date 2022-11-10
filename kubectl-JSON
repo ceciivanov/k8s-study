@@ -1,0 +1,15 @@
+# get context name from kubeconfig file that has user = aws-user
+1. kubectl config view --kubeconfig=my-kube-config -o jsonpath="{.contexts[?(@.context.user=='aws-user')].name}"
+
+# get persistent volumes sorted by capacity and showing only NAME, CAPACITY columns
+2. kubectl get pv --sort-by=.spec.capacity.storage -o=custom-columns=NAME:.metadata.name,CAPACITY:.spec.capacity.storage
+
+# get nodes's osImage
+3. kubectl get nodes -o jsonpath='{.items[*].status.nodeInfo.osImage}' 
+
+# check all init container statuses of all pods in all namespaces
+ k get po -A -o jsonpath='{.items[*].status.initContainerStatuses[*].containerID}' | tr " " "\n"
+
+## items[*] -> all pods
+## initContainerStatuses[*] -> for each pod 
+## tr " " "\n" -> is used to add newline between space
