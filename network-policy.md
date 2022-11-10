@@ -27,3 +27,4 @@ ports:
 in the from section we specify the rules for the allowing traffic (namespaceselector, podselector, ips etc.)
 in the ports section we specify the ports that is allowing traffic
 
+![image](https://user-images.githubusercontent.com/61785341/201159219-31cc27db-d27d-4719-8c2f-fd196fd40092.png)
