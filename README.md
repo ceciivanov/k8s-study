@@ -58,6 +58,7 @@ Practice/Mock-ups Exam Links:
 
 ## Network Policy:
 https://banzaicloud.com/blog/network-policy/
+https://github.com/ahmetb/kubernetes-network-policy-recipes
 
 ## Scheduling:
 https://docs.openshift.com/container-platform/3.11/admin_guide/scheduling/scheduler-advanced.html
