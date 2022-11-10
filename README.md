@@ -41,6 +41,7 @@ Setup Kubernetes Cluster
 ---
 Practice/Mock-ups Exam Links:
 - https://killer.sh/cka (PAID Exam Simulator - comes with the CKA exam purchase)
+- https://killercoda.com/killer-shell-cka
 - https://kodekloud.com/courses/kubernetes-challenges/  (FREE Kubernetes practice scenarios to solve)
 - https://github.com/StenlyTU/K8s-training-official
 - https://github.com/alijahnas/CKA-practice-exercises
