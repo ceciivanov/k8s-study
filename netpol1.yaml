@@ -18,5 +18,57 @@ spec:
     - port: 53
       protocol: UDP
 
-
+## this have two rules
+1st:  egress to ns space2 (any port)
+2nd:  egress to port 53 (any destination)
 ## allow outgoing DNS traggif on port 53, but restricts pod in space1 to only reach pods in namespace space2 
+
+
+
+# another example:
+-----------------
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: np1
+  namespace: default
+spec:
+  podSelector:
+    matchLabels:
+      run: nginx
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          run: busybox
+    ports:
+    - protocol: TCP
+      port: 80
+  policyTypes:
+  - Ingress
+
+# 1 rule:  ingress from run=busybox ON port 80
+# ----
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: np1
+  namespace: default
+spec:
+  podSelector:
+    matchLabels:
+      run: nginx
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          run: busybox
+  - ports:
+    - protocol: TCP
+      port: 80
+  policyTypes:
+  - Ingress 
+
+# 2 rules:
+# 1st: ingress from run=busybox (any port)
+# 2nd: ingress from port 80 (any source)
