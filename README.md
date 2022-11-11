@@ -20,8 +20,6 @@ Links for  Online Courses:
 - https://www.udemy.com/course/certified-kubernetes-administrator-with-practice-tests/  (**RECOMMENDED PAID COURSE** , videos + labs/practice test + mock up exams, can be found on Udemy at price 10$-20$ only on Sales-Day)
 - https://www.udemy.com/course/learn-kubernetes/ (Recommended Paid course for beginner from Udemy at price 10$-20$ only on Sales-Day)
 - https://training.linuxfoundation.org/training/introduction-to-kubernetes/  (FREE Kubernetes intro Course from LinuxFoundation - no videos in this course, only Reading Resources)
-- https://app.pluralsight.com/paths/skills/certified-kubernetes-administrator (FREE until end of 2022)
-
 
 ---
 Kubernetes Learning Resources/Links:
