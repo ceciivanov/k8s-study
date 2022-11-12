@@ -69,3 +69,15 @@ spec:
               values:
               - S2
           topologyKey: kubernetes.io/hostname
+
+
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - store
+            topologyKey: "kubernetes.io/hostname"
