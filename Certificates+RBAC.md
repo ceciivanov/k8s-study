@@ -12,7 +12,7 @@ openssl x509 -req -in demouser.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out
 ## or use CertificateSigningRequest API
 **csr.yaml**
 
-apiVersion: certificates.k8s.io/v1\
+'''apiVersion: certificates.k8s.io/v1\
 kind: CertificateSigningRequest\
 metadata:\
     name: demouser\
@@ -22,7 +22,7 @@ spec:\
     request: <demouser.csr content>\
     signerName: kubernetes.io/kube-apiserver-client\
     usages:\
-    - client auth\
+    - client auth\'''
          
  - kubectl apply -f csr.yaml
  - kubectl certificate approve demouser
