@@ -12,60 +12,55 @@ openssl x509 -req -in demouser.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out
 ## or use CertificateSigningRequest API
 **csr.yaml**
 
-'''apiVersion: certificates.k8s.io/v1\
-kind: CertificateSigningRequest\
-metadata:\
-    name: demouser\
-spec:\
-    groups:\
-    - system:authenticated\
-    request: <demouser.csr content>\
-    signerName: kubernetes.io/kube-apiserver-client\
-    usages:\
-    - client auth\'''
+apiVersion: certificates.k8s.io/v1
+
+kind: CertificateSigningRequest
+
+metadata:
+
+    name: demouser
+    
+spec:
+
+    groups:
+    
+    - system:authenticated
+    
+    request: <demouser.csr content>
+    
+    signerName: kubernetes.io/kube-apiserver-client
+    
+    usages:
+    
+    - client auth
          
  - kubectl apply -f csr.yaml
  - kubectl certificate approve demouser
  - kubectl get csr demouser -o jsonpath='{.status.certificate}' | base64 -d > demouser.crt ---- get the certificate
 
-## Setting his environment/config
+## Setting credentials to the kubeconfig
 
-### define cluster
-kubectl config set-cluster kubernetes-demo \
- --server=https://$CLUSTER_IP:6443 \
- --certificate-authority=/etc/kubernetes/pki/ca.crt
- --embed-certs=true \
- --kubeconfig=demouser.conf ----> new config file
- 
- ### define user credential in config
+ ### define user credential in current config (.kube/config)
  kubectl config set-credentials demouser \
  --client-key=demouser.key
  --client-certificate=demouser.crt \
- --embed-certs=true \
- --kubeconfig=demouser.conf
+ --embed-certs=true
  
  ### define context
  kubectl config set-context demouser@kubernetes-demo \
  --cluster=kubernetes-demo \
- --user=demouser \
- --kubeconfig=demouser.conf
+ --user=demouser
  
 ### set-context
-**kubectl config use-context demouser@kubernetes-demo --kubeconfig=demouser.conf**
-
-Now demouser has a config file and access to the cluster in his own 'virtual cluster' aka environment
+kubectl config use-context demouser@kubernetes-demo
 
 ## Grant RBAC to user
 
-kubectl create role/clusterrole demo-role --resource=pods,deployments,services --verb=*
+kubectl create role/clusterrole demo-role --resource=pods,deployments,services --verb=* (* is for all access)
 kubectl create rolebinding/clusterrolebinding demo-role-bind --role=demo-role --user=demouser
 
 check access
 kubectl auth can-i list pods --as=demouser
-
-**
-kubectl get pods --kubeconfig=demouser.conf 
-OR new user gets his own home directory and in /root/.kube/config is stored its config file
 
 ----------------------------------------------------------------------------------------------
 
