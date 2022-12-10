@@ -11,6 +11,9 @@ REMEMBER:
 ## kubelet is running as process in each node(master-worker)
 ## kube-apiserver and other components are runnings as static pods (check fies in /etc/kubernetes/manifests)
 
+### systemctl cat kubelet
+### systemctl cat etcd ( for external etcd servere )
+
 - sudo systemctl status kubelet
 - sudo systemctl restart kubelet
 - sudo journalctl -u kubelet | grep -i error
