@@ -8,8 +8,21 @@
 3. kubectl get nodes -o jsonpath='{.items[*].status.nodeInfo.osImage}' 
 
 # check all init container statuses of all pods in all namespaces
- k get po -A -o jsonpath='{.items[*].status.initContainerStatuses[*].containerID}' | tr " " "\n"
+4. k get po -A -o jsonpath='{.items[*].status.initContainerStatuses[*].containerID}' | tr " " "\n"
 
 ## items[*] -> all pods
 ## initContainerStatuses[*] -> for each pod 
 ## tr " " "\n" -> is used to add newline between space
+
+# get pods and resources they are using
+5. kubectl get pods -o jsonpath=‘{range .items[*]} {“\n”} {.metadata.name} {.spec.containers[*].resources}’
+
+# get pods and their image with custom columns named NAME, IMAGE
+6. kubectl get pods -o custom-columns=METADATA:.metadata.name,IMAGE:.spec.containers[*].image
+
+# get nodes that are schedulable (without any taints)
+7. kubectl get nodes -o custom-columns=NODE:.metadata.name,TAINT:.spec.taints[*].effect | grep -v NoSchedule
+
+
+### loop:  {range .items[*]} {...} {"\n"} {...} {end}
+### condition:  [?(@. )]
