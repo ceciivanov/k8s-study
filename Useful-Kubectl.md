@@ -10,8 +10,3 @@ set's host foo.com and paths, path* sets as pathType: Prefix
   
  kubectl auth can-i list pods --as=system:serviceaccount:namespace:serviceaccount -n <namespace> OR --as=user
 
-
-
-JSON:
- 
- kubectl get nodes -o json | jq -c 'paths' | grep -v "metadata"
