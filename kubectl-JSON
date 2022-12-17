@@ -1,3 +1,9 @@
+
+## loop:  {range .items[*]} {...} {"\n"} {...} {end}
+## condition:  [?(@. )]
+
+## search through json output - kubectl get nodes -o json | jq -c 'paths' | grep -vi "metadata"
+
 # get context name from kubeconfig file that has user = aws-user
 1. kubectl config view --kubeconfig=my-kube-config -o jsonpath="{.contexts[?(@.context.user=='aws-user')].name}"
 
@@ -23,10 +29,9 @@
 # get nodes that are schedulable (without any taints)
 7. kubectl get nodes -o custom-columns=NODE:.metadata.name,TAINT:.spec.taints[*].effect | grep -v NoSchedule
 
+# get each node with its container runtime 
+8. kubectl get nodes -o jsonpath=‘{range .items[*]}{.status.nodeInfo.containerRuntimeVersion}{“\n”}{end}’
 
-### loop:  {range .items[*]} {...} {"\n"} {...} {end}
-### condition:  [?(@. )]
+# get nodes with their os-image using custom columns
+9. kubectl get nodes -o custom-columns=NODENAME:.metadata.name,OSIMAGE:.status.nodeInfo.osImage
 
-
-search through json output
-- kubectl get nodes -o json | jq -c 'paths' | grep -v "metadata"
