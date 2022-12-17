@@ -3,7 +3,7 @@
 - Node Affinity – Used to constrain the Nodes that can receive a Pod by matching labels of those Nodes. 
 Node Affinity can only be used to set positive affinities that attract Pods to the Node.
 
-- Inter-Pod Affinity – Used to constrain the Nodes that can receive a Pod by matching labels of the existing Pods already running on each of those Nodes. 
+- Inter-Pod Affinity – Used to constrain the Pods that can receive a Node by matching labels of the existing Pods already running on each of those Nodes. 
 Inter-Pod Affinity can be either an attracting affinity or a repelling anti-affinity.
 
 
